@@ -1,0 +1,158 @@
+html {
+  font-family: "Open Sans", "Helvetica", sans-serif;
+  color: #eee;
+  background-color: #222;
+  font-size: 2em;
+}
+
+body {
+  display: flex;
+  flex-flow: wrap;
+}
+
+section {
+  width: 10rem;
+  background-color: #3c6db6;
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+
+section.line {
+  width: 22rem;
+}
+
+div {
+  white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  margin-bottom: .2ex;
+}
+
+span {
+  display: inline-flex;
+  text-align: right;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  min-width: 0;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+.off {
+  background-color: #666;
+  fill:
+}
+
+.good {
+  background-color: #3c6db6;
+  fill: #3c6db6
+}
+
+.stop {
+  background-color: #c63513;
+  fill: #c63513;
+}
+
+.slow {
+  background-color: #f0b71b;
+  color: #222;
+  fill: #f0b71b;
+}
+
+.discard {
+  background-color: #654c9a;
+  fill: #654c9a;
+}
+
+div.timeline-labels {
+  font-size: .3em;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+div.oee-summary span.good {
+  justify-content: flex-end;
+  padding-right: 1ex;
+  font-weight: bold;
+}
+
+div.oee-status {
+  justify-content: flex-start;
+  padding-left: 1ex;
+}
+
+.mini {
+  font-size: .5em;
+}
+
+.progress span {
+  padding: 0 .5em;
+}
+
+.complete {
+  background-color: #6ad86a;
+  justify-content: flex-end;
+  color: #222;
+}
+
+.incomplete {
+  background-color: #468846;
+}
+
+.gauge {
+  position: relative;
+}
+
+.gauge span {
+  background-color: #3c6db6;
+}
+
+.gauge span.ok {
+  background-color: #4fb63c;
+}
+
+.gauge span.warning {
+  background-color: #f0b71b;
+  color: #222;
+}
+
+.gauge span.danger {
+  background-color: #c63513;
+}
+
+.gauge span.mark {
+  background-color: transparent;
+  padding: 0 .5em;
+  border-left: solid 1ex white;
+  position: absolute;
+  text-shadow: 0 0 2px black;
+}
+
+.oee-graph {
+  height: 2em;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+i {
+  font-style: normal;
+  color: #f0b71b;
+}
+
+b {
+  color: #c63513;
+}
+
+h3 {
+  font-size: .3em;
+  margin: 0.2em 1ex .1em;
+  font-weight: 200;
+}
