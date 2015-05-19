@@ -43,6 +43,8 @@ h2 {
   margin: 0;
 }
 
+h2 { font-size: 1em; }
+
 .off {
   background-color: #40484a;
   fill: #40484a;
@@ -73,6 +75,9 @@ div.timeline-labels {
   font-size: .3em;
   justify-content: center;
   margin-bottom: 1em;
+}
+div.timeline-labels span {
+    justify-content: center;
 }
 
 div.oee-summary span.good {
