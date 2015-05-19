@@ -1,7 +1,7 @@
 html {
   font-family: "Open Sans", "Helvetica", sans-serif;
-  color: #eee;
-  background-color: #222;
+  color: #f6f9f9;
+  background-color: #2a2924;
   font-size: 2em;
 }
 
@@ -12,7 +12,7 @@ body {
 
 section {
   width: 10rem;
-  background-color: #3c6db6;
+  background-color: #304959;
   display: flex;
   flex-direction: column;
   margin: 1em;
@@ -44,29 +44,29 @@ h2 {
 }
 
 .off {
-  background-color: #666;
-  fill:
+  background-color: #40484a;
+  fill: #40484a;
 }
 
 .good {
-  background-color: #3c6db6;
-  fill: #3c6db6
+  background-color: #508084;
+  fill: #508084;
 }
 
 .stop {
-  background-color: #c63513;
-  fill: #c63513;
+  background-color: #dc4600;
+  fill: #dc4600;
 }
 
 .slow {
-  background-color: #f0b71b;
-  color: #222;
-  fill: #f0b71b;
+  background-color: #f6af1e;
+  color: #2a2924;
+  fill: #f6af1e;
 }
 
 .discard {
-  background-color: #654c9a;
-  fill: #654c9a;
+  background-color: #5b4490;
+  fill: #5b4490;
 }
 
 div.timeline-labels {
@@ -95,13 +95,13 @@ div.oee-status {
 }
 
 .complete {
-  background-color: #6ad86a;
+  background-color: #96a673;
   justify-content: flex-end;
-  color: #222;
+  color: #2a2924;
 }
 
 .incomplete {
-  background-color: #468846;
+  background-color: #566e35;
 }
 
 .gauge {
@@ -109,28 +109,28 @@ div.oee-status {
 }
 
 .gauge span {
-  background-color: #3c6db6;
+  background-color: #304959;
 }
 
 .gauge span.ok {
-  background-color: #4fb63c;
+  background-color: #4f7d6e;
 }
 
 .gauge span.warning {
-  background-color: #f0b71b;
-  color: #222;
+  background-color: #9a7937;
+  color: #2a2924;
 }
 
 .gauge span.danger {
-  background-color: #c63513;
+  background-color: #9f4e38;
 }
 
 .gauge span.mark {
   background-color: transparent;
   padding: 0 .5em;
-  border-left: solid 1ex white;
+  border-left: solid 1ex #fff8f6;
   position: absolute;
-  text-shadow: 0 0 2px black;
+  text-shadow: 0 0 2px #292824;
 }
 
 .oee-graph {
@@ -144,11 +144,11 @@ svg {
 
 i {
   font-style: normal;
-  color: #f0b71b;
+  color: #f6af1e;
 }
 
 b {
-  color: #c63513;
+  color: #dc4600;
 }
 
 h3 {
