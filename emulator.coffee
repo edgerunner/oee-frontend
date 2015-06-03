@@ -1,24 +1,15 @@
-http = require "http"
-concat = require "concat-stream"
+cradle = require 'cradle'
+db = new cradle.Connection().database('konzek_oee_log')
 
 Array.prototype.random = -> this[Math.floor Math.random() * this.length]
 
-defaults = (options) ->
-  options.host = '127.0.0.1'
-  options.port = 5984
-  options.path = "/konzek_oee_log/#{options.path}"
-  options.headers ?= {}
-  options.headers['Content-Type'] ?= 'application/json'
-  return options
 
 machines = {}
-http.get "http://127.0.0.1:5984/konzek_oee_log/_design/machines/_view/machines", (res)->
-  res.setEncoding('utf8')
-  #res.pipe process.stdout
-  res.pipe concat (raw)->
-    machines = (row.value for row in JSON.parse(raw).rows)
 
-    start()
+db.view 'machines/machines', (err, doc) ->
+  return console.log err if err
+  machines = (row.value for row in doc.rows)
+  start()
 
 # random interval function
 ri = (min, max) -> (min + Math.random() * (max-min)) * 1000
@@ -58,20 +49,18 @@ stop = (machine) ->
 
 put_event = (event, machine) ->
   timestamp = Date.now()
-  req = http.request defaults {
-    path: "#{machine._id}.event.#{timestamp}"
-    method: 'PUT'
-  }
 
-  req.end JSON.stringify {
+  db.save "#{machine._id}.event.#{timestamp}.#{event}", {
     'machine': machine._id
     'event': event
     'timestamp': timestamp
-  }
+  }, (err, res) ->
+    if err
+      console.log err
+    else
+      console.log "#{res.statusCode} #{res.statusMessage} #{JSON.stringify res.headers.location}"
 
-  req.on 'response', (res)->
-    console.log "#{res.statusCode} #{res.statusMessage} #{JSON.stringify res.headers.location}"
-
+# stop machines when exiting
 process.on "SIGINT", ->
   console.log 'exiting in 5s…'
   for machine in machines
