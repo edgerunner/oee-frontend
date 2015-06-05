@@ -1,4 +1,5 @@
 cradle = require 'cradle'
+Machine = require 'machine'
 db = new cradle.Connection().database('konzek_oee_log')
 
 Array.prototype.random = -> this[Math.floor Math.random() * this.length]
