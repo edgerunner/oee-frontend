@@ -13,6 +13,31 @@
             var template = link.querySelector('#oee-summary');
             var clone = document.importNode(template.content, true);
             this.createShadowRoot().appendChild(clone);
+            this.attributeChangedCallback('oee',null,this.attributes['oee'].value);
+          }
+        },
+        attributeChangedCallback: {
+          value: function (att, old, niw) {
+            switch (att) {
+              case 'oee':
+                var oee = niw.split(' ').map(parseFloat);
+                var sum = oee.reduce(function (a,b) {
+                  return a+b;
+                });
+                oee = oee.map(function (n) {
+                  return Math.round((n/sum) * 100) + "%";
+                });
+                NodeList.prototype.forEach = Array.prototype.forEach;
+                this.shadowRoot.querySelectorAll("span").forEach(function (span, i) {
+                  span.style.flexBasis = oee[i];
+                  if (parseFloat(oee[i])>25) {
+                    span.innerText = oee[i];
+                  } else {
+                    span.innerText = "";
+                  }
+                });
+                break;
+            }
           }
         }
       });
@@ -24,18 +49,17 @@
     <template id="oee-summary">
       <style>
         @import "components/oee.css";
-        .good {
+        span {
           justify-content: flex-end;
           padding-right: 1ex;
           font-weight: bold;
           }
       </style>
-      <span class="good" style="flex-basis:74%">
-        <content></content>
+      <span class="good" style="flex-basis:100%">
       </span>
-      <span class="stop" style="flex-basis:9%">&nbsp;</span>
-      <span class="slow" style="flex-basis:10%">&nbsp;</span>
-      <span class="discard" style="flex-basis:7%">&nbsp;</span>
+      <span class="stop" style="flex-basis:0%">&nbsp;</span>
+      <span class="slow" style="flex-basis:0%">&nbsp;</span>
+      <span class="discard" style="flex-basis:0%">&nbsp;</span>
     </template>
   </body>
 </html>

@@ -12,6 +12,7 @@ span {
   box-sizing: border-box;
   overflow-x: hidden;
   min-width: 0;
+  transition: flex-basis 1s;
 }
 
 .off {
