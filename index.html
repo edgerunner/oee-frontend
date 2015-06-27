@@ -3,14 +3,14 @@
 <head>
   <title>Konzek prototip</title>
   <link rel="stylesheet" href="index.css">
+  <script src="../node_modules/webcomponents.js/webcomponents.js" charset="utf-8"></script>
   <link rel="import" href="components/oee-summary.html">
+  <link rel="import" href="components/oee-status.html">
 </head>
 <body>
   <section class="machine">
     <oee-summary oee="36 4 7 3">%77</oee-summary>
-    <div class="oee-status slow">
-      <h1>Rewinder</h1>
-    </div>
+    <oee-status status="slow">Rewinder</oee-status>
     <div class="oee-timeline" data-timespan="60">
       <span class="off" style="flex-grow:15">&nbsp;</span>
       <span class="stop" style="flex-grow:7">&nbsp;</span>
@@ -43,9 +43,7 @@
   </section>
   <section class="machine">
     <oee-summary oee="85 3 8 4"></oee-summary>
-    <div class="oee-status good">
-      <h1>TPP 2</h1>
-    </div>
+    <oee-status status="good">TPP 2</oee-status>
     <div class="oee-timeline" data-timespan="60">
       <span class="good" style="flex-grow:20">&nbsp;</span>
       <span class="stop" style="flex-grow:3">&nbsp;</span>
@@ -70,9 +68,8 @@
   </section>
   <section class="line">
     <oee-summary oee="60 19 13 8"></oee-summary>
-    <div class="oee-status stop">
-      <h1>KL17</h1>
-    </div>
+    <oee-status status="stop">KL-17</oee-status>
+
     <div class="oee-timeline" data-timespan="60">
       <span class="good" style="flex-grow:15">&nbsp;</span>
       <span class="stop" style="flex-grow:7">&nbsp;</span>
@@ -96,9 +93,8 @@
           <span class="slow" style="flex-basis:5%">&nbsp;   </span>
           <span class="discard" style="flex-basis:2%">&nbsp;</span>
         </div>
-        <div class="oee-status discard">
-          <h2>SG1</h2>
-        </div>
+        <oee-status status="discard">SG1</oee-status>
+
       </section>
       <section class="machine">
         <div class="oee-summary mini">
@@ -107,9 +103,8 @@
           <span class="slow" style="flex-basis:10%">&nbsp;   </span>
           <span class="discard" style="flex-basis:7%">&nbsp;</span>
         </div>
-        <div class="oee-status stop">
-          <h2>SG2</h2>
-        </div>
+
+        <oee-status status="stop">SG2</oee-status>
       </section>
     </div>
 

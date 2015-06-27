@@ -15,28 +15,39 @@ span {
   transition: flex-basis 1s;
 }
 
+:host([status='off']),
 .off {
   background-color: #40484a;
   fill: #40484a;
 }
 
+:host([status='good']),
 .good {
   background-color: #508084;
   fill: #508084;
 }
 
+:host([status='stop']),
 .stop {
   background-color: #dc4600;
   fill: #dc4600;
 }
 
+:host([status='slow']),
 .slow {
   background-color: #f6af1e;
   color: #2a2924;
   fill: #f6af1e;
 }
 
+:host([status='discard']),
 .discard {
   background-color: #7f4b8e;
   fill: #7f4b8e;
 }
+
+h1, h2 {
+  margin: 0 .2em;
+}
+h1 { font-size: 1.5em; }
+h2 { font-size: 1em; }
