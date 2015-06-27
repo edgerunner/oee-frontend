@@ -22,10 +22,20 @@
   </head>
   <body>
     <template id="oee-summary">
-        <span class="good" style="flex-basis:74%"><i>&triangle;</i> 74%    </span>
-        <span class="stop" style="flex-basis:9%">&nbsp;   </span>
-        <span class="slow" style="flex-basis:10%">&nbsp;   </span>
-        <span class="discard" style="flex-basis:7%">&nbsp;</span>
+      <style>
+        @import "components/oee.css";
+        .good {
+          justify-content: flex-end;
+          padding-right: 1ex;
+          font-weight: bold;
+          }
+      </style>
+      <span class="good" style="flex-basis:74%">
+        <content></content>
+      </span>
+      <span class="stop" style="flex-basis:9%">&nbsp;</span>
+      <span class="slow" style="flex-basis:10%">&nbsp;</span>
+      <span class="discard" style="flex-basis:7%">&nbsp;</span>
     </template>
   </body>
 </html>

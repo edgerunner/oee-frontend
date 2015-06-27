@@ -1,0 +1,41 @@
+:host {
+  white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  margin-bottom: .2ex;
+}
+
+span {
+  display: inline-flex;
+  text-align: right;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  min-width: 0;
+}
+
+.off {
+  background-color: #40484a;
+  fill: #40484a;
+}
+
+.good {
+  background-color: #508084;
+  fill: #508084;
+}
+
+.stop {
+  background-color: #dc4600;
+  fill: #dc4600;
+}
+
+.slow {
+  background-color: #f6af1e;
+  color: #2a2924;
+  fill: #f6af1e;
+}
+
+.discard {
+  background-color: #7f4b8e;
+  fill: #7f4b8e;
+}
