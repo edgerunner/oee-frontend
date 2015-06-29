@@ -1,3 +1,4 @@
+div,
 :host {
   white-space: nowrap;
   width: 100%;
@@ -16,24 +17,28 @@ span {
   transition: flex-basis 1s;
 }
 
+::content [status='off'],
 :host([status='off']),
 .off {
   background-color: #40484a;
   fill: #40484a;
 }
 
+::content [status='good'],
 :host([status='good']),
 .good {
   background-color: #508084;
   fill: #508084;
 }
 
+::content [status='stop'],
 :host([status='stop']),
 .stop {
   background-color: #dc4600;
   fill: #dc4600;
 }
 
+::content [status='slow'],
 :host([status='slow']),
 .slow {
   background-color: #f6af1e;
@@ -41,6 +46,7 @@ span {
   fill: #f6af1e;
 }
 
+::content [status='discard'],
 :host([status='discard']),
 .discard {
   background-color: #7f4b8e;

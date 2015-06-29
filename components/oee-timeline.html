@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>OEE summary</title>
+    <script>
+    window.addEventListener('WebComponentsReady', function() {
+      var proto = Object.create(HTMLElement.prototype, {
+        createdCallback: {
+          value: function() {
+            var link = document.querySelector('link[href$="oee-timeline.html"]').import;
+            var template = link.querySelector('#oee-timeline');
+            var clone = document.importNode(template.content, true);
+            this.createShadowRoot().appendChild(clone);
+            this.attributeChangedCallback('duration',null,this.attributes['duration'].value);
+          }
+        },
+        attributeChangedCallback: {
+          value: function (att, old, niw) {
+            switch (att) {
+              case 'duration':
+                this.duration = parseFloat(niw);
+                var labels = this.shadowRoot.querySelectorAll('div.labels span');
+                for (var i = 0; i < 5; i++) {
+                  var label = labels[i];
+                  label.innerText = Math.round(this.duration/4*i);
+                }
+                this.scaleEvents();
+                break;
+            }
+          }
+        },
+        scaleEvents: {
+          value: function () {
+            var events = this.querySelectorAll("oee-event");
+            for (var e = 0; e < events.length; e++) {
+              var dur = parseFloat(events[e].attributes['duration'].value);
+              events[e].style.flexBasis = Math.round(dur / this.duration * 100) + "%";
+              events[e].innerHTML = "&nbsp;"
+            }
+          }
+        }
+      });
+      document.registerElement('oee-timeline', {prototype: proto});
+      document.registerElement('oee-event');
+    });
+    </script>
+  </head>
+  <body>
+    <template id="oee-timeline">
+      <style>
+        @import "/components/oee.css";
+        div.labels {
+          font-size: .3em;
+          justify-content: space-between;
+          flex-direction: row-reverse;
+          margin-bottom: 1em;
+          padding: 0 1ex;
+        }
+        div.timeline { justify-content: flex-end; }
+        :host { display: block; }
+      </style>
+      <div class="timeline">
+        <content select="oee-event"></content>
+      </div>
+
+      <div class="labels">
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+      </div>
+
+    </template>
+  </body>
+</html>

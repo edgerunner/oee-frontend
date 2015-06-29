@@ -6,26 +6,23 @@
   <script src="../node_modules/webcomponents.js/webcomponents.js" charset="utf-8"></script>
   <link rel="import" href="components/oee-summary.html">
   <link rel="import" href="components/oee-status.html">
+  <link rel="import" href="components/oee-timeline.html">
 </head>
 <body>
   <section class="machine">
     <oee-summary oee="36 4 7 3">%77</oee-summary>
     <oee-status status="slow">Rewinder</oee-status>
-    <div class="oee-timeline" data-timespan="60">
-      <span class="off" style="flex-grow:15">&nbsp;</span>
-      <span class="stop" style="flex-grow:7">&nbsp;</span>
-      <span class="good" style="flex-grow:10">&nbsp;</span>
-      <span class="slow" style="flex-grow:2">&nbsp;</span>
-      <span class="good" style="flex-grow:8">&nbsp;</span>
-      <span class="stop" style="flex-grow:8">&nbsp;</span>
-      <span class="slow" style="flex-grow:10">&nbsp;</span>
-    </div>
-    <div class="timeline-labels">
-      <span style="flex-grow:12">15:30</span>
-      <span style="flex-grow:20">15:45</span>
-      <span style="flex-grow:20">16:00</span>
-      <span style="flex-grow:8">16:15</span>
-    </div>
+    <oee-timeline duration="60">
+      <oee-event duration="15" status="off"></oee-event>
+      <oee-event duration="7"  status="stop"></oee-event>
+      <oee-event duration="10" status="good"></oee-event>
+      <oee-event duration="2"  status="slow"></oee-event>
+      <oee-event duration="8"  status="good"></oee-event>
+      <oee-event duration="8"  status="stop"></oee-event>
+      <oee-event duration="10" status="slow"></oee-event>
+    </oee-timeline>
+
+
     <h3>Rulo metrajı</h3>
     <div class="progress mini">
       <span class="complete" style="flex-grow:536">536m</span>
@@ -44,19 +41,14 @@
   <section class="machine">
     <oee-summary oee="85 3 8 4"></oee-summary>
     <oee-status status="good">TPP 2</oee-status>
-    <div class="oee-timeline" data-timespan="60">
-      <span class="good" style="flex-grow:20">&nbsp;</span>
-      <span class="stop" style="flex-grow:3">&nbsp;</span>
-      <span class="good" style="flex-grow:12">&nbsp;</span>
-      <span class="slow" style="flex-grow:5">&nbsp;</span>
-      <span class="good" style="flex-grow:20">&nbsp;</span>
-    </div>
-    <div class="timeline-labels">
-      <span style="flex-grow:12">15:30</span>
-      <span style="flex-grow:20">15:45</span>
-      <span style="flex-grow:20">16:00</span>
-      <span style="flex-grow:8">16:15</span>
-    </div>
+    <oee-timeline duration="60">
+      <oee-event duration="20" status="good"></oee-event>
+      <oee-event duration="3"  status="stop"></oee-event>
+      <oee-event duration="12" status="good"></oee-event>
+      <oee-event duration="5"  status="slow"></oee-event>
+      <oee-event duration="20"  status="good"></oee-event>
+    </oee-timeline>
+
     <div class="oee-graph">
       <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 60 100" preserveAspectRatio="none">
         <rect class="good" x="0" y="0" width="60" height="100" />
@@ -69,22 +61,16 @@
   <section class="line">
     <oee-summary oee="60 19 13 8"></oee-summary>
     <oee-status status="stop">KL-17</oee-status>
+    <oee-timeline duration="60">
+      <oee-event duration="15" status="off"></oee-event>
+      <oee-event duration="7"  status="stop"></oee-event>
+      <oee-event duration="10" status="good"></oee-event>
+      <oee-event duration="2"  status="slow"></oee-event>
+      <oee-event duration="8"  status="good"></oee-event>
+      <oee-event duration="8"  status="stop"></oee-event>
+      <oee-event duration="10" status="slow"></oee-event>
+    </oee-timeline>
 
-    <div class="oee-timeline" data-timespan="60">
-      <span class="good" style="flex-grow:15">&nbsp;</span>
-      <span class="stop" style="flex-grow:7">&nbsp;</span>
-      <span class="good" style="flex-grow:10">&nbsp;</span>
-      <span class="slow" style="flex-grow:2">&nbsp;</span>
-      <span class="good" style="flex-grow:8">&nbsp;</span>
-      <span class="slow" style="flex-grow:8">&nbsp;</span>
-      <span class="stop" style="flex-grow:10">&nbsp;</span>
-    </div>
-    <div class="timeline-labels">
-      <span style="flex-grow:12">15:30</span>
-      <span style="flex-grow:20">15:45</span>
-      <span style="flex-grow:20">16:00</span>
-      <span style="flex-grow:8">16:15</span>
-    </div>
     <div class="components">
       <section class="machine">
         <oee-summary oee="85 8 5 2"></oee-summary>
